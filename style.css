@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #733fed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#profile-card {
+    width: 320px;
+    background: rgb(210, 213, 223);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(117, 7, 82);
+    text-align: center;
+}
+
+.dark-theme {
+    background: #ee0606;
+    color: rgb(247, 6, 179);
+}
+
+#skills-list {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#skill-input {
+    width: 90%;
+    padding: 8px;
+    margin-top: 10px;
+    color: rgb(249, 50, 6);
+}
+
+button {
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: #ff06a4;
+}

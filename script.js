@@ -1,22 +1,37 @@
+const profileCard = document.getElementById('profile-card');
+const skillsList = document.getElementById('skills-list');
+const skillInput = document.getElementById('skill-input');
+const skillCount = document.getElementById('skill-count');
 
-const profileCard = document.getElementById("profile-card");
-const toggleThemeBtn = document.getElementById("toggle-theme-btn");
-const skillsList = document.getElementById("skills-list");
-const skillInput = document.getElementById("skill-input");
-const addSkillBtn = document.getElementById("add-skill-btn");
+function updateCount() {
+  skillCount.textContent = `Total Skills: ${skillsList.children.length}`;
+}
 
-toggleThemeBtn.addEventListener("click", function () {
-  profileCard.classList.toggle("dark-theme");
+function addSkillItem(text) {
+  const li = document.createElement('li');
+  li.textContent = text;
+  skillsList.appendChild(li);
+  updateCount();
+}
+
+document.getElementById('toggle-theme-btn').addEventListener('click', () => {
+  profileCard.classList.toggle('dark-theme');
 });
 
-addSkillBtn.addEventListener("click", function () {
-  const skill = skillInput.value.trim();
+document.getElementById('add-skill-btn').addEventListener('click', () => {
+  const text = skillInput.value.trim();
+  if (text) {
+    addSkillItem(text);
+    skillInput.value = '';
+  }
+});
 
-  if (skill !== "") {
-    const newSkill = document.createElement("li");
-    newSkill.textContent = skill;
-    skillsList.appendChild(newSkill);
-
-    skillInput.value = "";
+skillInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const text = skillInput.value.trim();
+    if (text) {
+      addSkillItem(text);
+      skillInput.value = '';
+    }
   }
 });
